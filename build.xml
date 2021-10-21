@@ -1,6 +1,10 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="zm-admin-console" default="war">
     <import file="../zm-zcs/ant-global.xml"/>
-    <property name="ajax.dir" location="../zm-admin-ajax" />
+    <condition property="ajax.dir" value="../zm-admin-ajax">
+       <not>
+          <isset property="ajax.dir"/>
+       </not>
+    </condition>
     <property name="ajax.src.dir" location="${ajax.dir}/src" />
     <property name="ajax.build.dir" location="${ajax.dir}/build" />
 
